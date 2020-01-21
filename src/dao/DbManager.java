@@ -95,8 +95,8 @@ public class DbManager {
 
         try {
             PreparedStatement statement = connection.prepareStatement("update littlecrud.users set name = ?, password = ? where id = ?");
-            statement.setString(2,id);
             statement.setString(1,name);
+            statement.setString(2,id);
             statement.setString(3,password);
             statement.executeUpdate();
             statement.close();
