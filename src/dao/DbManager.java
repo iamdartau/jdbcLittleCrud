@@ -70,7 +70,7 @@ public class DbManager {
     }
 
     public User getUserById(String id){
-        String sql = "select from users where id = ?";
+        String sql = "select * from users where id = ?";
         User user = null;
         try {
             PreparedStatement statement =connection.prepareStatement(sql);
@@ -98,7 +98,7 @@ public class DbManager {
             statement.setString(2,id);
             statement.setString(1,name);
             statement.setString(3,password);
-            statement.executeQuery();
+            statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
             e.printStackTrace();

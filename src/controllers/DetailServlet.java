@@ -26,7 +26,7 @@ public class DetailServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
-        User user = dbManager.getUserById(id);
+        User user = dbManager.getUserById(String.valueOf(id));
         if(user!=null){
             request.setAttribute("user", user);
             request.getRequestDispatcher("detail.jsp").forward(request,response);

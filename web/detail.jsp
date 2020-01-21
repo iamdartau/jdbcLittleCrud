@@ -14,11 +14,12 @@
 <%
 
     User user = (User) request.getAttribute("user");
-    out.print(user.getId() + user.getName() + user.getPassword());
+    out.print("id:  " + user.getId()+ "   name:  " + user.getName() + "   password:  " + user.getPassword());
 %>
-<form  action="update" method="post">
+<form  action="/update" method="post">
     <input type="hidden" name="id" value="<%out.print(user.getId());%>">
     <input type="text" name="name" value="<%out.print(user.getName());%>">
+    <input type="text" name="password" value="<%out.print(user.getPassword());%>">
     <button>update</button>
 </form>
 </body>
