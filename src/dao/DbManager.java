@@ -94,10 +94,10 @@ public class DbManager {
     public void updateUserById(String id, String name, String password) {
 
         try {
-            PreparedStatement statement = connection.prepareStatement("update littlecrud.users set name = ?, password = ? where id = ?");
+            PreparedStatement statement = connection.prepareStatement("UPDATE `users` SET `name` = ?, `password` = ? WHERE `users`.`id` = ?");
             statement.setString(1,name);
-            statement.setString(2,id);
-            statement.setString(3,password);
+            statement.setString(2,password);
+            statement.setInt(3, Integer.parseInt(id));
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {

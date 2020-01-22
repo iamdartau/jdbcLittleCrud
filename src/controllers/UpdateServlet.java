@@ -21,14 +21,11 @@ public class UpdateServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
         String id =request.getParameter("id");
         String name = request.getParameter("name");
         String password = request.getParameter("password");
-
         dbManager.updateUserById(id, name, password);
-        request.getRequestDispatcher("/").forward(request, response);
+        response.sendRedirect("/");
     }
 
 }
